@@ -83,7 +83,7 @@ async def stream(client, m: Message):
             RADIO_CALL.pop(CHAT_ID)
             await sleep(3)
 
-        await msg.edit("📥 `Downloading ...`")
+        await msg.edit("📥 `Downloading...`")
         video = await client.download_media(media)
         await sleep(2)
         group_call = group_call_factory.get_group_call()
@@ -129,7 +129,7 @@ async def stream(client, m: Message):
             RADIO_CALL.pop(CHAT_ID)
             await sleep(3)
 
-        regex = r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+"
+        regex = r"^(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"
         match = re.match(regex,query)
         if match:
             await msg.edit("📢 `Starting Play YouTube Stream...`")
