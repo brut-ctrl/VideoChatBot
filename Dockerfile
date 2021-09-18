@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM python:latest
 
 RUN apt update && apt upgrade -y
 RUN apt install python3-pip -y
