@@ -96,14 +96,14 @@ async def radio(client, m: Message):
 
     if CHAT_ID in RADIO_CALL:
         await sleep(1)
-        await msg.edit(f"📻 **Start Playing [Radio Streaming]({query})!**", disable_web_page_preview=True)
+        await msg.edit(f"📻 **Starting Play [Radio Streaming]({query})!**", disable_web_page_preview=True)
     else:
-        await msg.edit("📻 `Starting Radio Stream...`")
+        await msg.edit("📻 `Starting Play Radio Stream...`")
         await sleep(2)
         group_call = group_call_factory.get_file_group_call(input_filename)
         try:
             await group_call.start(CHAT_ID)
             RADIO_CALL[CHAT_ID] = group_call
-            await msg.edit(f"📻 **Started [Radio Streaming]({query})!**", disable_web_page_preview=True)
+            await msg.edit(f"📻 **Starting Play [Radio Streaming]({query})!**", disable_web_page_preview=True)
         except Exception as e:
             await msg.edit(f"😵‍💫 **An Error Occoured!** \n\nBot Brain was Error: `{e}`")

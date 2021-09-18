@@ -31,7 +31,7 @@ from pyrogram.errors import MessageNotModified
 
 CHAT_ID = Config.CHAT_ID
 USERNAME = Config.BOT_USERNAME
-HOME_TEXT = "👋🏻 **Hi Dude [{}](tg://user?id={})**, \n\n🤖 Im **Video Chat Bot**. \nI Can Stream Lives, Radios, YouTube Videos & Telegram Video Files On Voice Chat Of Telegram Channels & Groups"
+HOME_TEXT = "👋🏻 **Hi Dude [{}](tg://user?id={})** \n\n🤖 Im **Video Chat Bot**. \n**I Can Stream Lives, Radios, YouTube Videos & Telegram Video Files On Voice Chat Of Telegram Channels & Groups**"
 HELP_TEXT = """
 🏷️ **Setting Up** :
 
@@ -79,7 +79,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data=="home":
         buttons = [
             [
-                InlineKeyboardButton("SEARCH INLINE", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("🧐 Inline Mode", switch_inline_query_current_chat=""),
             ],
             [
                 InlineKeyboardButton("💌 Contact Me", url="https://t.me/dunottagme"),
@@ -113,7 +113,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 async def start(client, message):
     buttons = [
             [
-                InlineKeyboardButton("SEARCH INLINE", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("🧐 Inline Mode", switch_inline_query_current_chat=""),
             ],
             [
                 InlineKeyboardButton("💌 Contact Me", url="https://t.me/dunottagme"),
