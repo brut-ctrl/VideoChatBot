@@ -37,6 +37,7 @@ from youtube_dl import YoutubeDL
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import GroupCallFactory
+from youtubesearchpython import VideosSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 ADMINS = Config.ADMINS
@@ -48,6 +49,7 @@ FFMPEG_PROCESSES = Database.FFMPEG_PROCESSES
 
 
 ydl_opts = {
+        "quiet": True,
         "geo_bypass": True,
         "nocheckcertificate": True,
 }
@@ -57,7 +59,7 @@ group_call_factory = GroupCallFactory(User, GroupCallFactory.MTPROTO_CLIENT_TYPE
 @Client.on_message(filters.command(["stream", f"stream@{USERNAME}"]) & filters.user(ADMINS) & (filters.chat(CHAT_ID) | filters.private))
 async def stream(client, m: Message):
     media = m.reply_to_message
-    if media.video or media.document:
+    if not media and not ' ' in m.text:
         msg = await m.reply_text("⏳ `Processing...`")
 
         process = FFMPEG_PROCESSES.get(CHAT_ID)
