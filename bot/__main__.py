@@ -41,9 +41,10 @@ if not os.path.isdir("./downloads"):
 
 Bot.start()
 User.start()
-print("\nVideo Chat Bot Started")
+print("\nVideo Chat Bot Started...")
 
 idle()
 Bot.stop()
 User.stop()
-print("\nVideo Chat Bot Stopped")
+print("\nVideo Chat Bot Stopped!")
+
